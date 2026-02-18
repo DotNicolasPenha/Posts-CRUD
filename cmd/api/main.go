@@ -1,6 +1,7 @@
 package main
 
 import (
+	"github.com/DotNicolasPenha/Posts-CRUD/internal/common/logger"
 	"github.com/DotNicolasPenha/Posts-CRUD/internal/database"
 	"github.com/DotNicolasPenha/Posts-CRUD/internal/http"
 	"github.com/gin-gonic/gin"
@@ -12,7 +13,7 @@ func main() {
 	connectionString := "postgresql://posts:12345@db:5432/posts"
 	conn, err := database.NewConnection(connectionString)
 	if err != nil {
-		panic(err)
+		logger.Fatal(err.Error())
 	}
 	defer conn.Close()
 

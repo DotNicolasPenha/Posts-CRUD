@@ -4,6 +4,7 @@ import (
 	"context"
 	"time"
 
+	"github.com/DotNicolasPenha/Posts-CRUD/internal/common/logger"
 	"github.com/jackc/pgx/v4/pgxpool"
 )
 
@@ -13,13 +14,13 @@ type Repository struct {
 
 func NewRepository(conn *pgxpool.Pool) *Repository {
 	if conn == nil {
-		panic("connection of post repository is nil")
+		logger.Fatal("connection of post repository is nil")
 	}
 	return &Repository{
 		Conn: conn,
 	}
 }
-func (r *Repository) Insert(post Post) error {
+func (r *Repository) Insert(post CreatePostDTO) error {
 	ctx, cancel := context.WithTimeout(context.Background(), 10*time.Second)
 	defer cancel()
 
