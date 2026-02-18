@@ -1,0 +1,18 @@
+
+Posts crud
+============
+
+Sobre:
+ Este repositório se trata de um crud de posts, eu estou desenvolvendo isso
+ por motivos de prática em criação de backends que envolvam Docker e Postgresql.
+
+Linguagem:
+ Go Lang
+
+Tecnologias: 
+ Docker,Postgres,Gin-Gonic
+
+Status: 
+ Este projeto ainda está em desenvolvimento, até agora há o módulo post que tem repository
+ com um método de Insert e um service com um método de AddPost, além da conexão do banco 
+ de dados postgresql e o docker file.
