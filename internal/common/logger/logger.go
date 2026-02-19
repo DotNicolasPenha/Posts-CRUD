@@ -1,6 +1,9 @@
 package logger
 
-import "fmt"
+import (
+	"fmt"
+	"os"
+)
 
 func Info(text string) {
 	fmt.Printf("[info] %s \n", text)
@@ -16,4 +19,5 @@ func GroupError(errs []error) {
 }
 func Fatal(text string) {
 	fmt.Printf("[fatal] %s \n", text)
+	os.Exit(0)
 }

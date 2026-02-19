@@ -1,0 +1,22 @@
+services:
+  db:
+    image: postgres:16
+    container_name: posts-db
+    environment:
+      POSTGRES_USER: posts
+      POSTGRES_PASSWORD: 1234
+      POSTGRES_DB: posts
+    healthcheck:
+      test: [ "CMD-SHELL", "pg_isready -U posts -d posts" ]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  api:
+    build: .
+    container_name: posts-api
+    ports:
+      - "3000:3000"
+    depends_on:
+      db:
+        condition: service_healthy
