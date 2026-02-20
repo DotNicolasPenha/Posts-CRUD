@@ -28,3 +28,7 @@ func (s *Service) AddPost(post CreatePostDTO) error {
 	}
 	return nil
 }
+func (s *Service) GetPosts() ([]Post, error) {
+	posts, err := s.repository.FindMany()
+	return posts, err
+}
