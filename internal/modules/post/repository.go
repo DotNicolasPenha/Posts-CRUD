@@ -64,3 +64,15 @@ func (r *Repository) FindMany() ([]Post, error) {
 	}
 	return posts, nil
 }
+func (r *Repository) FindOne(id string) (*Post, error) {
+	ctx, cancel := context.WithTimeout(context.Background(), 10*time.Second)
+	defer cancel()
+	var post Post
+	err := r.Conn.QueryRow(
+		ctx, "SELECT ID,username,body,created_at FROM posts WHERE id=$1", id,
+	).Scan(&post.ID, &post.Username, &post.Body, &post.CreatedAt)
+	if err != nil {
+		return nil, err
+	}
+	return &post, nil
+}
