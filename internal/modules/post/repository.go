@@ -37,7 +37,7 @@ func (r *Repository) FindMany() ([]Post, error) {
 	ctx, cancel := context.WithTimeout(context.Background(), 10*time.Second)
 	defer cancel()
 	var posts []Post
-	rows, err := r.Conn.Query(ctx, "SELECT id,username,body,created_at FROM posts")
+	rows, err := r.Conn.Query(ctx, "SELECT ID,username,body,created_at FROM posts")
 	if err != nil {
 		return nil, err
 	}
