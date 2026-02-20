@@ -42,3 +42,10 @@ func (s *Service) GetOnePost(id string) (*Post, error) {
 	}
 	return post, nil
 }
+
+func (s *Service) RemoveOne(id string) error {
+	if id == "" {
+		return errors.New("id param not found")
+	}
+	return s.repository.DeleteOne(id)
+}

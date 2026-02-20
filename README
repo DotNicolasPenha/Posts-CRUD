@@ -21,3 +21,7 @@ Status 02:
  Agora neste projeto há uma função SetupTables que serve para inicializar
  as tables, além de agora eu estar utilizando ENVs e também criei duas rotas
  para adicionar e listar os posts.
+
+Status 03:
+ Status de hoje é que agora criei rotas de findOne,findMany e deleteOne,
+ tudo com repository e service.
