@@ -32,3 +32,13 @@ func (s *Service) GetPosts() ([]Post, error) {
 	posts, err := s.repository.FindMany()
 	return posts, err
 }
+func (s *Service) GetOnePost(id string) (*Post, error) {
+	if id == "" {
+		return nil, errors.New("id param not found")
+	}
+	post, err := s.repository.FindOne(id)
+	if err != nil {
+		return nil, err
+	}
+	return post, nil
+}
