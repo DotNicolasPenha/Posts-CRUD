@@ -2,7 +2,7 @@
 # Posts crud
 
 ### Sobre:
- Este repositório se trata de um crud de posts, eu estou desenvolvendo isso
+ Este repositório se trata de um crud de users e posts, eu estou desenvolvendo isso
  por motivos de prática em criação de backends que envolvam Docker e Postgresql.
 
 ### Linguagem:
@@ -13,20 +13,33 @@
 
 ## Utilize o projeto: 
   Este projeto já está no ar em: 
-  ``` 
-  posts-crud-3qsk.onrender.com/posts
-   ``` 
-### Rotas:
-- ### GET /posts retorna todos os posts
-- ### GET /posts/:id retorna um post selecionado por id
-- ### POST /posts WITH JSON cria um post:
+``` 
+posts-crud-3qsk.onrender.com/posts
+``` 
+```
+posts-crud-3qsk.onrender.com/users
+```
+## Rotas:
+### /Users
+- #### GET /users retorna todos os usuários
+- #### POST /users WITH JSON cria um usuário:
+``` 
+{
+ "username":"SeuNome",
+ "bio":"Conte sobre você"
+}
+```
+### /Posts
+- #### GET /posts retorna todos os posts
+- #### GET /posts/:id retorna um post selecionado por id
+- #### POST /posts WITH JSON cria um post:
 ```
 {
   "username":"Nome",
   "body":"Olá, tudo bem?"
 }
 ```
-- ### DELETE /posts/:id deleta um post selecionado por id
+- #### DELETE /posts/:id deleta um post selecionado por id
 ## Blog
 ### Status 01: 
  Este projeto ainda está em desenvolvimento, até agora há o módulo post que tem repository
@@ -41,3 +54,5 @@
 ### Status 03:
  Status de hoje é que agora criei rotas de findOne,findMany e deleteOne,
  tudo com repository e service e coloquei no ar a API e o banco de dados postresql
+### Status 04:
+ O Status de hoje é que eu criei uma tabela de users, criei duas rotas de criar e listar usuários tudo com repository e service incluso.
