@@ -28,3 +28,7 @@ func (s *Service) AddUser(createUserDto CreateUserDTO) error {
 	}
 	return s.repository.Insert(createUserDto)
 }
+
+func (s *Service) GetUsers() ([]User, error) {
+	return s.repository.FindMany()
+}
