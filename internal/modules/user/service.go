@@ -1,6 +1,10 @@
 package post
 
-import "github.com/DotNicolasPenha/Posts-CRUD/internal/common/logger"
+import (
+	"errors"
+
+	"github.com/DotNicolasPenha/Posts-CRUD/internal/common/logger"
+)
 
 type Service struct {
 	repository Repository
@@ -13,4 +17,14 @@ func NewService(repository *Repository) *Service {
 	return &Service{
 		repository: *repository,
 	}
+}
+
+func (s *Service) AddUser(createUserDto CreateUserDTO) error {
+	if createUserDto.Username == "" {
+		return errors.New("username is undefined")
+	}
+	if createUserDto.Bio == "" {
+		return errors.New("bio is undefined")
+	}
+	return s.repository.Insert(createUserDto)
 }
